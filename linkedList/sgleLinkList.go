@@ -1,3 +1,8 @@
+//
+// Created by 嘟嘟 on 2020/10/2.
+//
+
+
 package linkedList
 
 import (
@@ -7,13 +12,13 @@ import (
 
 //单链表: single linked list
 type SingleLL struct {
-	//id int				//链表节点编号
+	//id int			//链表节点编号
 	data interface{}	//节点数据
 	//其他字段
 	next *SingleLL		//后继节点的指针
 }
 
-//初始化一个单链表头节点
+//初始化一条单链表(头节点)
 func InitSingleLL() *SingleLL {
 	return &SingleLL{
 		data: nil,
@@ -130,34 +135,6 @@ func (S *SingleLL) Delete() (interface{}, error) {
 	temp.next = nil
 
 	return data, nil
-}
-
-//删除单链表中的第 N 个节点
-func (S *SingleLL) Delete_N(N int) (interface{},error) {
-	//先判断N是否合法
-	if N > S.Len() || N < 0 {
-		return nil,errors.New("不合法的操作,请重试!")
-	}
-
-	//辅助节点,用于寻找第 N- 1 个节点
-	temp := S
-
-	//计数器,结合辅助节点,寻找第 N- 1 个节点
-	count := 0
-
-	//寻找第 N- 1 个节点
-	for count < N - 1{
-		temp = temp.next
-		count++
-	}
-
-	//第N个节点的data数据
-	data := temp.next.data
-
-	//删除第N个节点
-	temp.next = temp.next.next
-
-	return data,nil
 }
 
 //获取单链表的长度

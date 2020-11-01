@@ -1,3 +1,10 @@
+//
+// Created by 嘟嘟 on 2020/10/6.
+//
+
+
+
+
 //栈:stack
 package stack
 
@@ -7,26 +14,26 @@ import (
 )
 
 const (
-	StackMaxSize = 30
+	StackMaxSize = 15
 )
 
 //实现顺序存储结构的栈,极其相关操作
 //顺序结构:sequential
 type SequentialStack struct {
 	top int				//栈顶
-	data [StackMaxSize]interface{}	//栈内数据,,,,数组下标为零出为栈底
+	data [StackMaxSize]int	//栈内数据,,,,数组下标为零出为栈底
 }
 
 //初始化一个顺序存储结构的栈
 func InitSequentialStack() *SequentialStack {
 	return &SequentialStack{
 		top:    -1,
-		data:   [StackMaxSize]interface{}{},
+		data:   [StackMaxSize]int{},
 	}
 }
 
 //入栈操作
-func (S *SequentialStack) Push(data interface{}) error {
+func (S *SequentialStack) Push(data int) error {
 	if S.IsFull() {
 		return errors.New("栈已满,请pull后重新操作!")
 	}
@@ -36,9 +43,9 @@ func (S *SequentialStack) Push(data interface{}) error {
 }
 
 //出栈操作
-func (S *SequentialStack) Pull() (interface{},error) {
+func (S *SequentialStack) Pull() (int,error) {
 	if S.IsEmpty() {
-		return nil,errors.New("当前栈为空,请push后重新操作!")
+		return 000,errors.New("当前栈为空,请push后重新操作!")
 	}
 	data := S.data[S.top]
 	S.top--
@@ -46,7 +53,7 @@ func (S *SequentialStack) Pull() (interface{},error) {
 }
 
 //获得栈顶元素
-func (S *SequentialStack) Get() interface{} {
+func (S *SequentialStack) Get() int {
 	return S.data[S.top]
 }
 

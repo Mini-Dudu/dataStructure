@@ -4,9 +4,20 @@ import (
 	"DataStruct/linkedList"
 	"DataStruct/queue"
 	"DataStruct/stack"
+	"DataStruct/strand"
 	"fmt"
 )
+
 func main() {
+
+	stradn1 := strand.NewStrand("shfiweksjhs")
+	strand2 := strand.NewStrand("")
+
+	fmt.Println("下标:", stradn1.Index(*strand2))
+	return
+
+
+
 	//测试单链表各个功能
 	fmt.Println("单链表测试信息如下:")
 	linkedList.Test_sgleLinkList()
@@ -57,4 +68,6 @@ func main() {
 	fmt.Println("链式存储结构的栈测试信息如下:")
 	stack.Test_chainStructure()
 	fmt.Println()
+
+	fmt.Println(stack.Test_Calculate())
 }

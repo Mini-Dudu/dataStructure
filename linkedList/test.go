@@ -1,3 +1,8 @@
+//
+// Created by 嘟嘟 on 2020/10/3.
+//
+
+
 package linkedList
 
 import (
@@ -33,7 +38,7 @@ func Test_sgleLinkList() {
 
 	head.Delete_H_Rear()
 	head.Delete()
-	head.Delete_N(2)
+	//head.Delete_N(2)
 
 	//以上步骤:
 	//先将一号至四号依次添加到单链表尾部,然后将五号插入头节点后面,(也就是首部)

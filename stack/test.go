@@ -1,3 +1,9 @@
+//
+// Created by 嘟嘟 on 2020/10/7.
+//
+
+
+
 package stack
 
 import (
@@ -5,16 +11,15 @@ import (
 )
 
 
-
 //测试顺序存储结构的栈的各个功能
 func Test_SequentialStack() {
 	sStack := InitSequentialStack()
 	fmt.Println("新建的顺序栈是否为空:",sStack.IsEmpty())
-	sStack.Push("1")
-	sStack.Push("2")
-	sStack.Push("3")
-	sStack.Push("4")
-	sStack.Push("5")
+	sStack.Push(1)
+	sStack.Push(2)
+	sStack.Push(3)
+	sStack.Push(4)
+	sStack.Push(5)
 	sStack.Pull()
 	fmt.Println("进行五次入栈和一次出栈操作后顺序栈是否为空:",sStack.IsEmpty())
 }
@@ -49,3 +54,20 @@ func Test_chainStructure(){
 
 }
 
+
+//测试表达式的计算
+func Test_Calculate() int {
+
+	//中缀表达式
+	//str := "5+6-4+2+1"		//3
+	str := "3+2*(5-3)/2"
+	//str := "((3+7*4)-8*3)/(3-1)"
+
+	//经过转换,得到后缀表达式
+	//PostfixExpre := Transition(str)
+
+	//根据后缀表达式,计算结果
+	count := Calculate(str)
+
+	return count
+}

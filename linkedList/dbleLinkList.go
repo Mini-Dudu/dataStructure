@@ -1,3 +1,8 @@
+//
+// Created by 嘟嘟 on 2020/10/2.
+//
+
+
 package linkedList
 
 import (
@@ -5,15 +10,18 @@ import (
 	"fmt"
 )
 
+//自定义数据类型,方便拓展
+type DataType string
+
 //双链表:double linked list
 type DoubleLL struct {
-	prior *DoubleLL		//前一个节点的指针
+	prior *DoubleLL		//指向前一个节点的指针
 	data interface{}	//节点数据
 	//其他字段
-	next *DoubleLL		//后一个节点的指针
+	next *DoubleLL		//指向后一个节点的指针
 }
 
-//初始化一个双链表头节点
+//初始化一条双链表(头节点)
 func InitDoubleLL() *DoubleLL {
 	return &DoubleLL{
 		prior: nil,

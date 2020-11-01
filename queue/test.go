@@ -1,3 +1,9 @@
+//
+// Created by 嘟嘟 on 2020/10/4.
+//
+
+
+
 package queue
 
 import "fmt"
@@ -60,7 +66,6 @@ func Test_Queue_chainStructure() {
 	data, err := q.Pull()
 	fmt.Println("第六个出队元素:",data,"错误信息:",err)
 }
-
 
 //测试顺序存储结构的环形队列的各个功能
 func Test_CircleQueue_sequential() {

@@ -1,3 +1,7 @@
+//
+// Created by 嘟嘟 on 2020/10/3.
+//
+
 package linkedList
 
 import (
@@ -292,9 +296,9 @@ func (CL *CircularSingleLL) SHow() error {
 
 //环形双链表
 type CircularDoubleLL struct {
-	prior *CircularDoubleLL		//前一个节点
+	prior *CircularDoubleLL		//指向前一个节点
 	data interface{}			//节点数据
-	next *CircularDoubleLL		//下一个节点
+	next *CircularDoubleLL		//指向下一个节点
 }
 
 //初始化一个环形双链表
