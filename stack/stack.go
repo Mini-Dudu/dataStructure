@@ -9,6 +9,7 @@
 package stack
 
 import (
+	//"DataStruct/tree/binaryTree"
 	"errors"
 	"fmt"
 )
@@ -16,6 +17,13 @@ import (
 const (
 	StackMaxSize = 15
 )
+//type dataType = *binaryTree.BiTree
+//type dataType = *int
+//type dataType = *string
+//type dataType = interface{}
+//type dataType = *float32
+//type dataType = *float64
+//type dataType = *bool
 
 //实现顺序存储结构的栈,极其相关操作
 //顺序结构:sequential
@@ -45,7 +53,7 @@ func (S *SequentialStack) Push(data int) error {
 //出栈操作
 func (S *SequentialStack) Pull() (int,error) {
 	if S.IsEmpty() {
-		return 000,errors.New("当前栈为空,请push后重新操作!")
+		return 0,errors.New("当前栈为空,请push后重新操作!")
 	}
 	data := S.data[S.top]
 	S.top--

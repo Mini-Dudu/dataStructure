@@ -51,6 +51,7 @@ func (Q *CircleQueue_sequential) Get() (interface{},error) {
 	}
 	return Q.queue[Q.tail], nil
 }
+
 //出队列操作
 func (Q *CircleQueue_sequential) Pull() (interface{},error) {
 	//判断队列是否为空
@@ -58,9 +59,9 @@ func (Q *CircleQueue_sequential) Pull() (interface{},error) {
 		return nil, errors.New("当前顺序结构环形队列为空,请Push后重试!")
 	}
 	//数据出队列
-	Q.head = (Q.head + 1) % size
+	//Q.head = (Q.head + 1) % size
 	data := Q.queue[Q.head]
-
+	Q.head = (Q.head + 1) % size
 	return data, nil
 }
 
@@ -146,6 +147,9 @@ func (Q *CircleQueue_chainStructure) Pull() (interface{},error) {
 	//数据出队列
 	data := Q.next.data
 	Q.next = Q.next.next
+	if Q.next == Q {
+		Q.tail = Q
+	}
 	return data, nil
 }
 

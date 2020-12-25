@@ -5,18 +5,31 @@ import (
 	"DataStruct/queue"
 	"DataStruct/stack"
 	"DataStruct/strand"
+	"DataStruct/tree/binaryTree"
 	"fmt"
 )
 
 func main() {
 
-	stradn1 := strand.NewStrand("shfiweksjhs")
-	strand2 := strand.NewStrand("")
-
-	fmt.Println("下标:", stradn1.Index(*strand2))
-	return
+	binaryTree.TestBiTree()
+	//return
 
 
+	str1 := strand.NewStrand("KeAiDeDuDu")
+	str2 := strand.NewStrand("DuDu")
+
+	//str1 := strand.NewStrand("aaaaaaaaaaaaaab")
+	//str2 := strand.NewStrand("ababaa")
+
+	next := strand.GetNextList(str2)
+	nextVal := strand.GetNextVal(str2)
+	fmt.Println(next)
+	fmt.Println(nextVal)
+	n := str1.Index(str2)
+	m := str1.Index_KMP(str2)
+
+	fmt.Println(n,m)
+	//return
 
 	//测试单链表各个功能
 	fmt.Println("单链表测试信息如下:")
@@ -63,11 +76,20 @@ func main() {
 	stack.Test_SequentialStack()
 	fmt.Println()
 
-
 	//测试链式存储结构的栈的相关功能
 	fmt.Println("链式存储结构的栈测试信息如下:")
 	stack.Test_chainStructure()
 	fmt.Println()
 
-	fmt.Println(stack.Test_Calculate())
+	//测试串的各个功能
+	fmt.Println("串的测试信息如下:")
+	strand.TestStrand()
+	fmt.Println()
+
+	//栈的应用:表达式的计算
+	fmt.Println("表达式的计算测试信息如下:")
+	res := stack.Test_Calculate()
+	fmt.Println(res)
+	fmt.Println()
+
 }

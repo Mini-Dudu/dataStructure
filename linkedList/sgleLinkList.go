@@ -113,6 +113,34 @@ func (S *SingleLL) Delete_H_Rear() (interface{}, error) {
 	return data, nil
 }
 
+//删除单链表中的第 N 个节点
+func (S *SingleLL) Delete_N(N int) (interface{},error) {
+	//先判断N是否合法
+	if N > S.Len() || N < 0 {
+		return nil,errors.New("不合法的操作,请重试!")
+	}
+
+	//辅助节点,用于寻找第 N- 1 个节点
+	temp := S
+
+	//计数器,结合辅助节点,寻找第 N- 1 个节点
+	count := 0
+
+	//寻找第 N- 1 个节点
+	for count < N - 1{
+		temp = temp.next
+		count++
+	}
+
+	//第N个节点的data数据
+	data := temp.next.data
+
+	//删除第N个节点
+	temp.next = temp.next.next
+
+	return data,nil
+}
+
 //删除单链表尾部节点
 func (S *SingleLL) Delete() (interface{}, error) {
 	//判断单链表是否为空
@@ -169,9 +197,9 @@ func (S *SingleLL) Show() {
 	for temp.next != nil {
 		temp = temp.next
 		if temp.next != nil {
-			fmt.Printf("%s-->",temp.data)
+			fmt.Printf("%v-->",temp.data)
 		}else {
-			fmt.Printf("%s\n",temp.data)
+			fmt.Printf("%v\n",temp.data)
 		}
 	}
 }
